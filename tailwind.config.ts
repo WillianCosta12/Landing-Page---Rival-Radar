@@ -6,6 +6,14 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  // Garante que classes dinâmicas (template literals) não sejam purgadas em produção
+  safelist: [
+    'reveal-delay-1','reveal-delay-2','reveal-delay-3',
+    'reveal-delay-4','reveal-delay-5','reveal-delay-6',
+    'is-visible',
+    'border-[var(--border-bright)]',
+    { pattern: /^reveal/ },
+  ],
   theme: {
     extend: {
       colors: {

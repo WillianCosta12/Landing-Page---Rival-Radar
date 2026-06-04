@@ -2,41 +2,48 @@ import WaitlistForm from './hero/waitlist-form'
 
 export default function CtaFinal() {
   return (
-    <section
-      className="py-24 px-4 sm:px-6"
-      aria-labelledby="cta-heading"
-    >
-      <div className="max-w-2xl mx-auto text-center">
-        {/* Eyebrow */}
+    <section className="py-28 px-4 sm:px-6 relative overflow-hidden" aria-labelledby="cta-heading">
+      {/* Glow decorativo */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+        <div className="w-[600px] h-[400px] rounded-full"
+          style={{ background:'radial-gradient(ellipse, rgba(198,242,78,0.06) 0%, transparent 70%)' }} />
+      </div>
+
+      <div className="max-w-2xl mx-auto text-center relative">
         <div className="reveal flex items-center justify-center gap-2 mb-6">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent)]" aria-hidden="true" />
-          <span className="eyebrow">Última chamada</span>
+          <span className="eyebrow">última chamada</span>
         </div>
 
-        {/* Headline com FOMO */}
-        <h2
-          id="cta-heading"
-          className="reveal reveal-delay-1 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-primary)] mb-4 leading-tight"
-        >
-          Seu concorrente mudou algo{' '}
-          <span className="text-[var(--accent)]">esta semana.</span>
-          <br />Você viu?
+        <h2 id="cta-heading" className="reveal reveal-delay-1 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+          <span style={{
+            background:'linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 50%, var(--teal) 100%)',
+            WebkitBackgroundClip:'text',
+            WebkitTextFillColor:'transparent',
+            backgroundClip:'text',
+          }}>
+            Seu concorrente mudou algo esta semana.
+          </span>
+          <br />
+          <span className="text-[var(--text-secondary)] text-3xl sm:text-4xl">Você ainda não sabe.</span>
         </h2>
 
-        <p className="reveal reveal-delay-2 text-[var(--text-secondary)] font-body text-lg mb-10 max-w-lg mx-auto">
-          Enquanto você lê isso, os changelogs estão atualizando. Entre na lista e
-          nunca mais descubra pelo cliente que o concorrente lançou algo importante.
+        <p className="reveal reveal-delay-2 text-[var(--text-secondary)] font-body text-lg mb-8 max-w-lg mx-auto">
+          Enquanto você lê isso, changelogs estão sendo publicados.
+          Entre na lista agora e nunca mais descubra mudanças pelo seu cliente.
         </p>
 
         {/* Urgência */}
-        <div className="reveal reveal-delay-3 flex items-center justify-center gap-2 mb-8">
-          <div
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border"
-            style={{ borderColor: 'rgba(198,242,78,0.2)', background: 'rgba(198,242,78,0.05)' }}
-          >
+        <div className="reveal reveal-delay-3 flex items-center justify-center gap-3 mb-8 flex-wrap">
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[rgba(198,242,78,0.2)] bg-[rgba(198,242,78,0.05)]">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" aria-hidden="true" />
             <span className="text-xs font-mono text-[var(--text-secondary)]">
-              Beta com vagas limitadas · <span className="text-[var(--accent)]">47 pessoas na fila</span>
+              Beta com vagas limitadas · <span className="text-[var(--accent)] font-semibold">12 vagas restantes</span>
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[rgba(61,215,176,0.2)] bg-[rgba(61,215,176,0.05)]">
+            <span className="text-xs font-mono text-[var(--text-secondary)]">
+              ✓ <span className="text-[var(--teal)]">63 founders</span> já na fila
             </span>
           </div>
         </div>
@@ -47,6 +54,11 @@ export default function CtaFinal() {
             <WaitlistForm variant="cta" />
           </div>
         </div>
+
+        {/* Risk reversal */}
+        <p className="reveal reveal-delay-5 mt-6 text-xs text-[var(--text-faint)] font-mono">
+          // sem cartão · cancela quando quiser · acesso antecipado gratuito
+        </p>
       </div>
     </section>
   )

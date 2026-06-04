@@ -1,136 +1,153 @@
+'use client'
+
 import dynamic from 'next/dynamic'
 import WaitlistForm from './waitlist-form'
 
-// Radar usa requestAnimationFrame, só roda no client
 const Radar = dynamic(() => import('./radar'), { ssr: false })
 
-const SOURCES = [
-  'Changelogs',
-  'Product Hunt',
-  'Páginas de preço',
-  'Release notes',
-  'Blog & docs',
-]
+const SOURCES = ['Changelogs','Product Hunt','Páginas de preço','Release notes','Blog & docs','G2 Reviews']
 
 export default function Hero() {
   return (
-    <section
-      className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 sm:px-6 overflow-hidden"
-      aria-label="Seção principal"
-    >
+    <section className="relative pt-28 pb-12 md:pt-36 md:pb-20 px-4 sm:px-6 overflow-hidden" aria-label="Hero">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-8 items-center">
 
-          {/* ── Coluna esquerda: copy + form ── */}
+          {/* ── Copy ── */}
           <div className="flex flex-col gap-6">
-            {/* Eyebrow */}
-            <div className="hero-animate hero-delay-1 flex items-center gap-2">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent)]" aria-hidden="true" />
-              <span className="eyebrow">Inteligência competitiva no piloto automático</span>
+
+            {/* Eyebrow badge */}
+            <div className="hero-animate hero-delay-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(198,242,78,0.2)] bg-[rgba(198,242,78,0.05)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" aria-hidden="true" />
+                <span className="eyebrow text-[0.65rem]">Acesso antecipado aberto</span>
+              </div>
             </div>
 
             {/* Headline */}
-            <h1
-              className="hero-animate hero-delay-2 font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.05] tracking-tight text-[var(--text-primary)]"
-            >
+            <h1 className="hero-animate hero-delay-2 font-display text-4xl sm:text-5xl lg:text-[3.6rem] font-extrabold leading-[1.04] tracking-tight text-[var(--text-primary)]">
               Pare de stalkear<br />
               concorrente{' '}
-              <span
-                className="relative inline-block"
-                aria-label="na mão"
-              >
-                <span className="text-[var(--accent)]">na mão.</span>
-                {/* Underline decorativo */}
-                <span
-                  className="absolute -bottom-1 left-0 right-0 h-px"
-                  style={{ background: 'linear-gradient(90deg, var(--accent), transparent)' }}
-                  aria-hidden="true"
-                />
+              <span className="relative inline-block">
+                <span className="relative z-10" style={{
+                  background: 'linear-gradient(135deg, #c6f24e 0%, #3dd7b0 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}>na mão.</span>
               </span>
             </h1>
 
             {/* Lead */}
             <p className="hero-animate hero-delay-3 text-lg text-[var(--text-secondary)] font-body leading-relaxed max-w-lg">
-              Cadastre seus concorrentes uma vez. O radar varre changelog,
-              Product Hunt e página de preços toda semana —{' '}
+              Cadastre seus concorrentes uma vez. O radar varre changelog, Product Hunt
+              e preços toda semana —{' '}
               <strong className="text-[var(--text-primary)] font-semibold">
-                e te entrega só o que mudou, pronto pra agir.
+                e te entrega só o que mudou, em 90 segundos.
               </strong>
             </p>
 
-            {/* Social proof inline */}
+            {/* Social proof avatares */}
             <div className="hero-animate hero-delay-4 flex items-center gap-3">
-              <div className="flex -space-x-2" aria-hidden="true">
-                {['#c6f24e','#3dd7b0','#ffaa50','#c084fc'].map((c, i) => (
-                  <div
-                    key={i}
-                    className="w-7 h-7 rounded-full border-2 border-[var(--bg)] flex items-center justify-center text-[9px] font-bold"
-                    style={{ background: c, color: '#0a0c0b' }}
-                  >
-                    {String.fromCharCode(65 + i)}
+              <div className="flex -space-x-2.5" aria-hidden="true">
+                {[
+                  { bg:'#c6f24e', l:'M' },
+                  { bg:'#3dd7b0', l:'R' },
+                  { bg:'#a78bfa', l:'T' },
+                  { bg:'#ffaa50', l:'L' },
+                  { bg:'#ff6b6b', l:'G' },
+                ].map((a,i) => (
+                  <div key={i} className="w-8 h-8 rounded-full border-2 border-[var(--bg)] flex items-center justify-center text-[10px] font-bold text-[#060807]"
+                    style={{ background: a.bg }}>
+                    {a.l}
                   </div>
                 ))}
               </div>
-              <span className="text-sm text-[var(--text-secondary)]">
-                <span className="text-[var(--accent)] font-semibold">+47 founders</span>
-                {' '}já na lista de espera
-              </span>
+              <div>
+                <span className="text-sm text-[var(--text-primary)] font-semibold">+63 founders</span>
+                <span className="text-sm text-[var(--text-secondary)]"> já na lista de espera</span>
+              </div>
             </div>
 
             {/* Form */}
             <div className="hero-animate hero-delay-5">
               <WaitlistForm variant="hero" />
             </div>
+
+            {/* Trust signals */}
+            <div className="hero-animate hero-delay-6 flex flex-wrap gap-4 text-xs text-[var(--text-faint)] font-mono">
+              {['✓ Sem cartão de crédito','✓ Beta gratuito','✓ Cancela quando quiser'].map(t => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
           </div>
 
-          {/* ── Coluna direita: radar ── */}
-          <div className="hero-animate hero-delay-6 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[380px] lg:max-w-[440px]">
-              {/* Label flutuante de status */}
-              <div
-                className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full border border-[var(--border)] bg-[var(--panel)] text-[11px] font-mono text-[var(--text-secondary)]"
-                aria-label="Status: varredura em andamento"
-              >
+          {/* ── Radar ── */}
+          <div className="hero-animate hero-delay-7 flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-[400px] lg:max-w-[460px]">
+
+              {/* Badge de status */}
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full glass text-[11px] font-mono text-[var(--text-secondary)] whitespace-nowrap">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" aria-hidden="true" />
-                VARREDURA EM ANDAMENTO
+                VARREDURA EM ANDAMENTO · 3 rivais ativos
               </div>
 
-              {/* Container do radar */}
-              <div
-                className="relative rounded-2xl border border-[var(--border)] bg-[var(--panel)] p-6 lg:p-8"
-                style={{ boxShadow: '0 0 60px rgba(198,242,78,0.05), inset 0 0 40px rgba(0,0,0,0.3)' }}
-              >
+              {/* Container */}
+              <div className="relative rounded-2xl border border-[var(--border)] bg-[var(--panel)] p-6 lg:p-8"
+                style={{ boxShadow:'0 0 80px rgba(198,242,78,0.06), 0 0 0 1px rgba(198,242,78,0.08), inset 0 0 40px rgba(0,0,0,0.4)' }}>
                 <Radar />
 
-                {/* Stats abaixo do radar */}
-                <div className="mt-6 grid grid-cols-3 gap-3">
+                {/* Floating cards */}
+                <div className="-mt-2 grid grid-cols-3 gap-3 border-t border-[var(--border)] pt-4">
                   {[
-                    { value: '3', label: 'Rivais ativos' },
-                    { value: '7d',  label: 'Ciclo de varredura' },
-                    { value: '90s', label: 'Tempo de leitura' },
-                  ].map((s) => (
-                    <div key={s.label} className="text-center">
-                      <div className="font-display text-xl font-bold text-[var(--accent)]">{s.value}</div>
-                      <div className="text-[10px] font-mono text-[var(--text-faint)] leading-tight mt-0.5">{s.label}</div>
+                    { v:'3',   l:'Rivais rastreados' },
+                    { v:'7d',  l:'Ciclo de varredura' },
+                    { v:'90s', l:'Tempo de leitura'   },
+                  ].map(s => (
+                    <div key={s.l} className="text-center">
+                      <div className="font-display text-2xl font-extrabold text-[var(--accent)]">{s.v}</div>
+                      <div className="text-[10px] font-mono text-[var(--text-faint)] leading-tight mt-0.5">{s.l}</div>
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Floating alert card */}
+              <div className="absolute -right-4 top-16 w-48 glass rounded-xl p-3 border border-[rgba(255,107,107,0.2)]"
+                style={{ animation:'float 4s ease-in-out infinite', boxShadow:'0 8px 32px rgba(0,0,0,0.3)' }}
+                aria-hidden="true">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
+                  <span className="text-[10px] font-mono text-red-400 uppercase tracking-wider">Alerta</span>
+                </div>
+                <p className="text-[11px] text-[var(--text-primary)] font-body leading-tight">
+                  Acme subiu plano Pro de <span className="text-red-400 font-semibold">US$29 → US$39</span>
+                </p>
+              </div>
+
+              {/* Floating feature card */}
+              <div className="absolute -left-6 bottom-20 w-44 glass rounded-xl p-3 border border-[rgba(61,215,176,0.2)]"
+                style={{ animation:'float-b 3.5s ease-in-out infinite', boxShadow:'0 8px 32px rgba(0,0,0,0.3)' }}
+                aria-hidden="true">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[var(--teal)] animate-pulse" />
+                  <span className="text-[10px] font-mono text-[var(--teal)] uppercase tracking-wider">Feature</span>
+                </div>
+                <p className="text-[11px] text-[var(--text-primary)] font-body leading-tight">
+                  Beedo lançou <span className="text-[var(--teal)] font-semibold">Slack nativo</span>
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* ── Faixa de fontes monitoradas ── */}
-        <div className="mt-14 hero-animate hero-delay-6">
-          <div
-            className="rounded-xl border border-[var(--border)] bg-[var(--panel)] px-6 py-4 flex flex-col sm:flex-row items-center gap-4"
-          >
+        {/* Faixa de fontes */}
+        <div className="mt-14 hero-animate hero-delay-7">
+          <div className="rounded-xl border border-[var(--border)] bg-[var(--panel)] px-6 py-4 flex flex-col sm:flex-row items-center gap-4">
             <span className="eyebrow shrink-0">Fontes monitoradas</span>
             <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-              {SOURCES.map((s) => (
-                <span key={s} className="pill pill-accent">
-                  {s}
-                </span>
+              {SOURCES.map(s => (
+                <span key={s} className="pill pill-accent">{s}</span>
               ))}
             </div>
           </div>
