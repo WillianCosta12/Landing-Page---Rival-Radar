@@ -2,6 +2,8 @@
 
 import dynamic from 'next/dynamic'
 import WaitlistForm from './waitlist-form'
+import LeadCounter from '@/components/lead-counter'
+import AbHeadline from './ab-headline'
 
 const Radar = dynamic(() => import('./radar'), { ssr: false })
 
@@ -24,19 +26,8 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Headline */}
-            <h1 className="hero-animate hero-delay-2 font-display text-4xl sm:text-5xl lg:text-[3.6rem] font-extrabold leading-[1.04] tracking-tight text-[var(--text-primary)]">
-              Pare de stalkear<br />
-              concorrente{' '}
-              <span className="relative inline-block">
-                <span className="relative z-10" style={{
-                  background: 'linear-gradient(135deg, #c6f24e 0%, #3dd7b0 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}>na mão.</span>
-              </span>
-            </h1>
+            {/* Headline — A/B test (50/50 entre variante A e B) */}
+            <AbHeadline />
 
             {/* Lead */}
             <p className="hero-animate hero-delay-3 text-lg text-[var(--text-secondary)] font-body leading-relaxed max-w-lg">
@@ -64,8 +55,8 @@ export default function Hero() {
                 ))}
               </div>
               <div>
-                <span className="text-sm text-[var(--text-primary)] font-semibold">+63 founders</span>
-                <span className="text-sm text-[var(--text-secondary)]"> já na lista de espera</span>
+                <LeadCounter fallback={63} className="text-sm text-[var(--text-primary)] font-semibold" />
+                <span className="text-sm text-[var(--text-secondary)]"> founders já na lista</span>
               </div>
             </div>
 

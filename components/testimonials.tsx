@@ -80,6 +80,10 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
+
+        <p className="mt-8 text-center text-xs text-[var(--text-faint)] font-mono">
+          * Resultados baseados em beta testers. Nomes abreviados a pedido.
+        </p>
       </div>
     </section>
   )

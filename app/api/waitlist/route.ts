@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 import { sendLeadNotification } from '@/lib/resend'
+import { sendSlackLeadNotification } from '@/lib/slack'
 import { waitlistSchema } from '@/lib/validations'
+import { rateLimit } from '@/lib/rate-limit'
 import { ZodError } from 'zod'
 
 /**
@@ -17,6 +19,19 @@ import { ZodError } from 'zod'
  * - Nenhuma chave ou dado sensível é logado
  */
 export async function POST(request: NextRequest) {
+  // Rate limiting: 5 cadastros por IP por minuto
+  const ip =
+    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
+    request.headers.get('x-real-ip') ??
+    'unknown'
+  const { allowed, retryAfter } = rateLimit(ip, 5, 60_000)
+  if (!allowed) {
+    return NextResponse.json(
+      { error: 'Muitas tentativas. Aguarde um momento.' },
+      { status: 429, headers: { 'Retry-After': String(retryAfter) } }
+    )
+  }
+
   // Lê e valida o body
   let body: unknown
   try {
@@ -66,10 +81,10 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  // Notificação assíncrona — não bloqueia a resposta
-  sendLeadNotification(email).catch(() => {
-    // já logado internamente no sendLeadNotification
-  })
+  // Notificações assíncronas — não bloqueiam a resposta
+  // Ambas têm falha silenciosa; o lead já está salvo no banco
+  sendLeadNotification(email).catch(() => {})
+  sendSlackLeadNotification(email).catch(() => {})
 
   return NextResponse.json({ success: true }, { status: 201 })
 }

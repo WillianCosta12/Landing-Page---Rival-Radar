@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Bricolage_Grotesque, Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 
 const bricolage = Bricolage_Grotesque({
@@ -43,11 +44,27 @@ export const metadata: Metadata = {
     images: ['/og'],
   },
   robots: { index: true, follow: true },
+  // Lighthouse / SEO
+  alternates: { canonical: 'https://rivalradar.vercel.app' },
+  category: 'technology',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN
+
   return (
     <html lang="pt-BR" className={`${bricolage.variable} ${hanken.variable} ${jetbrains.variable}`}>
+      <head>
+        {/* Plausible Analytics — sem cookies, compatível com LGPD */}
+        {plausibleDomain && (
+          <Script
+            defer
+            data-domain={plausibleDomain}
+            src="https://plausible.io/js/script.tagged-events.js"
+            strategy="afterInteractive"
+          />
+        )}
+      </head>
       <body className="bg-root font-body antialiased">
         <div className="relative z-10">{children}</div>
       </body>
