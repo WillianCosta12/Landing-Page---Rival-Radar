@@ -22,16 +22,19 @@ const jetbrains = JetBrains_Mono({
   display: 'swap',
 })
 
+// URL base configurável via env — funciona com .vercel.app ou domínio próprio no futuro
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://landing-page-rival-radar.vercel.app'
+
 export const metadata: Metadata = {
   title: 'RivalRadar — Inteligência Competitiva no Piloto Automático',
   description:
     'Cadastre seus concorrentes uma vez. O radar varre changelog, Product Hunt e preços toda semana — e te entrega só o que mudou, pronto pra agir. Pare de stalkear concorrente na mão.',
   keywords: ['inteligência competitiva','monitoramento de concorrentes','changelog tracker','SaaS founders','competitive intelligence'],
-  metadataBase: new URL('https://rivalradar.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://rivalradar.vercel.app',
+    url: SITE_URL,
     title: 'RivalRadar — Inteligência Competitiva no Piloto Automático',
     description: 'Pare de stalkear concorrente na mão. O radar varre changelog, Product Hunt e preços toda semana.',
     siteName: 'RivalRadar',
@@ -44,8 +47,7 @@ export const metadata: Metadata = {
     images: ['/og'],
   },
   robots: { index: true, follow: true },
-  // Lighthouse / SEO
-  alternates: { canonical: 'https://rivalradar.vercel.app' },
+  alternates: { canonical: SITE_URL },
   category: 'technology',
 }
 

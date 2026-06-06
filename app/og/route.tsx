@@ -128,7 +128,7 @@ export async function GET() {
             fontWeight: 600,
           }}
         >
-          rivalradar.vercel.app · Acesso antecipado gratuito
+          {(process.env.NEXT_PUBLIC_SITE_URL ?? 'landing-page-rival-radar.vercel.app').replace('https://', '')} · Acesso antecipado gratuito
         </div>
       </div>
     ),
