@@ -84,7 +84,7 @@ export default function DigestMock() {
                 <span className="w-3 h-3 rounded-full" style={{ background:'#28c840' }} />
               </div>
               <span className="font-mono text-xs text-[var(--text-faint)] ml-2">
-                RivalRadar · Digest #17 — semana de 27 jan
+                RivalRadar · exemplo de digest (empresas fictícias)
               </span>
             </div>
 

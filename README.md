@@ -14,6 +14,8 @@ Esta página serve dois propósitos:
 1. **Portfólio** — peça com qualidade de produto real, animações modernas e design system próprio
 2. **Smoke test** — captura e-mails de uma lista de espera real, gravando no banco de dados
 
+> **Sem prova social inventada.** O produto ainda não tem usuários, então a página não exibe depoimentos, contadores de leads, escassez de vagas nem estatísticas. Os exemplos visuais (radar, ticker e digest) usam empresas fictícias e estão sinalizados como exemplo.
+
 ---
 
 ## Stack
@@ -52,22 +54,20 @@ rivalradar/
 │   ├── scroll-reveal.tsx       # IntersectionObserver (.reveal e .reveal-scale) com retry
 │   ├── spotlight-card.tsx      # Card com glow que segue o mouse via CSS variables
 │   ├── sticky-cta-bar.tsx      # Barra CTA que aparece após 45% de scroll
-│   ├── marquee.tsx             # Ticker infinito com mudanças detectadas (demonstra o produto)
-│   ├── stats-bar.tsx           # Contadores animados com easeOutExpo via IntersectionObserver
+│   ├── marquee.tsx             # Ticker infinito com exemplos fictícios de mudanças
 │   │
 │   ├── hero/
-│   │   ├── hero.tsx            # Layout 2 colunas, copy, social proof, floating alert cards
+│   │   ├── hero.tsx            # Layout 2 colunas, copy, form, radar de demonstração
 │   │   ├── radar.tsx           # Radar animado: anéis, varredura conic-gradient, blips + tags
 │   │   └── waitlist-form.tsx   # Form com estados idle/loading/success/error
 │   │
 │   ├── problem.tsx             # Contraste ~3h (vermelho) vs 5min (verde) com cards
 │   ├── how-it-works.tsx        # 3 passos com SpotlightCard e ícones
 │   ├── digest-mock.tsx         # Mock de e-mail/terminal com pills coloridas por tipo
-│   ├── testimonials.tsx        # 3 depoimentos com métricas concretas e gradient border
 │   ├── features.tsx            # Grid 6 cards com spotlight e reveal-scale
-│   ├── pricing.tsx             # Planos Solo/Builder, barra de escassez, urgência
+│   ├── pricing.tsx             # Planos Solo/Builder com preço de fundador
 │   ├── faq.tsx                 # Accordion com visibilidade gerenciada por React state
-│   ├── cta.tsx                 # CTA final com headline FOMO e gradiente animado
+│   ├── cta.tsx                 # CTA final com headline e gradiente animado
 │   └── footer.tsx
 │
 ├── lib/
@@ -93,18 +93,16 @@ rivalradar/
 | # | Seção | Estratégia de conversão |
 |---|---|---|
 | 1 | **Nav** | Blur no scroll, barra de progresso de leitura, CTA fixo |
-| 2 | **Hero** | Headline + radar ao vivo + floating alert cards + social proof "+63 founders" |
-| 3 | **Marquee** | Ticker com mudanças reais detectadas — demonstra o produto antes de explicar |
-| 4 | **Stats bar** | Contadores animados: 63+ founders, 3h economizadas, 90s digest, 100% automático |
-| 5 | **Problema** | Contraste visual ~3h vs 5min + banner "78% descobrem pelo cliente" |
-| 6 | **Como funciona** | 3 passos simples — remove objeção de complexidade |
-| 7 | **O digest** | Mock realista de e-mail — mostra exatamente o que o usuário recebe |
-| 8 | **Depoimentos** | 3 testemunhos com métricas concretas e gradient border hover |
-| 9 | **Features** | Grid 6 itens com spotlight — diferencia de "só mais um scraper" |
-| 10 | **Pricing** | Barra de escassez 38/50, badge "Fundador", price lock urgency |
-| 11 | **FAQ** | 6 perguntas que quebram as principais objeções de compra |
-| 12 | **CTA final** | Headline FOMO "Seu concorrente mudou algo esta semana. Você viu?" |
-| 13 | **Sticky CTA** | Aparece após 45% de scroll, pressão constante sem ser invasivo |
+| 2 | **Hero** | Headline A/B + radar de demonstração + floating alert cards |
+| 3 | **Marquee** | Ticker com exemplos fictícios — mostra o tipo de mudança detectada antes de explicar |
+| 4 | **Problema** | Contraste visual ~3h vs 5min + banner "o pior jeito de descobrir" |
+| 5 | **Como funciona** | 3 passos simples — remove objeção de complexidade |
+| 6 | **O digest** | Mock de e-mail com empresas fictícias — mostra o formato que o usuário recebe |
+| 7 | **Features** | Grid 6 itens com spotlight — diferencia de "só mais um scraper" |
+| 8 | **Pricing** | Planos Solo/Builder, badge "Fundador", preço travado para quem entra na lista |
+| 9 | **FAQ** | 6 perguntas que quebram as principais objeções de compra |
+| 10 | **CTA final** | Headline "Seu concorrente mudou algo esta semana. Você ainda não sabe." |
+| 11 | **Sticky CTA** | Aparece após 45% de scroll, pressão constante sem ser invasivo |
 
 ---
 
@@ -264,7 +262,6 @@ sendLeadNotification(email)
 | Hero entry | `hero-fade-up` com delays escalonados por elemento | `globals.css` |
 | Scroll reveals | `IntersectionObserver` em `.reveal` e `.reveal-scale` com retry 150ms/400ms | `scroll-reveal.tsx` |
 | Spotlight nos cards | Mouse `onMouseMove` → CSS variables `--mouse-x/y` → `radial-gradient` no `::before` | `spotlight-card.tsx` |
-| Contadores | `easeOutExpo` via `requestAnimationFrame`, dispara ao entrar na viewport | `stats-bar.tsx` |
 | Marquee | `animation: marquee-left` CSS puro, pausa no hover | `marquee.tsx` |
 | FAQ | Visibilidade controlada por React state — imune a re-renders | `faq.tsx` |
 | Background | `radial-gradient` animado com `bg-shift` keyframe | `globals.css` |
@@ -338,7 +335,6 @@ Classes geradas via template literal (`reveal-delay-${i}`) são invisíveis para
 
 - [ ] Domínio próprio (`rivalradar.com` ou `.app`) na Vercel
 - [ ] Verificar domínio no Resend para remetente customizado
-- [ ] Counter de leads em tempo real na landing (query `count` no Supabase)
 - [ ] Dashboard admin para visualizar e exportar leads
 - [ ] Notificação de novos leads no Slack além do e-mail
 - [ ] A/B test no copy do headline principal

@@ -24,7 +24,7 @@ export default function Problem() {
         <div className="reveal reveal-delay-3 flex items-start gap-3 px-4 py-3 rounded-xl border border-[rgba(255,107,107,0.2)] bg-[rgba(255,107,107,0.05)] mb-12 max-w-xl">
           <AlertTriangle size={16} className="text-red-400 mt-0.5 shrink-0" aria-hidden="true" />
           <p className="text-sm text-[var(--text-secondary)] font-body">
-            <strong className="text-red-400">Estudo interno:</strong> 78% dos founders descobrem mudanças de concorrentes pelo próprio cliente — depois de já perder negócio.
+            <strong className="text-red-400">O pior jeito de descobrir:</strong> pelo próprio cliente — quando o negócio já foi perdido.
           </p>
         </div>
 

@@ -1,13 +1,14 @@
+// Exemplos ilustrativos com empresas fictícias — não são detecções reais.
 const ITEMS = [
-  { type:'PREÇO',    color:'#ff8080', text:'Stripe subiu plano Growth de $499 → $649/mês' },
-  { type:'FEATURE',  color:'#3dd7b0', text:'Notion lançou IA nativa em todos os planos' },
-  { type:'PH',       color:'#ffaa50', text:'Linear atingiu #1 do dia no Product Hunt · 890 upvotes' },
-  { type:'PREÇO',    color:'#ff8080', text:'Intercom removeu plano gratuito sem aviso' },
-  { type:'FEATURE',  color:'#3dd7b0', text:'Vercel lançou Analytics sem limites no plano Pro' },
-  { type:'CHANGELOG',color:'#c6f24e', text:'Supabase anunciou branching em produção' },
-  { type:'PH',       color:'#ffaa50', text:'Cursor lançou extensão para VS Code · #3 do dia' },
-  { type:'PREÇO',    color:'#ff8080', text:'HubSpot aumentou preço de onboarding em 40%' },
-  { type:'FEATURE',  color:'#3dd7b0', text:'Figma lançou variáveis de design para todos' },
+  { type:'PREÇO',    color:'#ff8080', text:'Acme subiu plano Pro de US$29 → US$39/mês' },
+  { type:'FEATURE',  color:'#3dd7b0', text:'Beedo lançou integração nativa com Slack' },
+  { type:'PH',       color:'#ffaa50', text:'Cortex ficou em #2 do dia no Product Hunt' },
+  { type:'PREÇO',    color:'#ff8080', text:'Nimbo removeu o plano gratuito' },
+  { type:'FEATURE',  color:'#3dd7b0', text:'Kandu liberou export CSV em todos os planos' },
+  { type:'CHANGELOG',color:'#c6f24e', text:'Orbita publicou a v3.2 com API pública' },
+  { type:'PH',       color:'#ffaa50', text:'Tramo lançou extensão para VS Code' },
+  { type:'PREÇO',    color:'#ff8080', text:'Vexa aumentou a taxa de onboarding em 40%' },
+  { type:'FEATURE',  color:'#3dd7b0', text:'Zanzo lançou modo offline no app mobile' },
 ]
 
 export default function Marquee() {
@@ -16,7 +17,7 @@ export default function Marquee() {
   return (
     <div
       className="relative overflow-hidden border-y border-[var(--border)] bg-[var(--panel)] py-3"
-      aria-label="Mudanças detectadas recentemente pelo radar"
+      aria-label="Exemplos fictícios do tipo de mudança que o radar detecta"
     >
       {/* Gradientes de fade nas bordas */}
       <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 z-10"
@@ -26,8 +27,8 @@ export default function Marquee() {
 
       {/* Eyebrow fixo à esquerda */}
       <div className="absolute left-4 top-1/2 -translate-y-1/2 z-20 hidden sm:flex items-center gap-2" aria-hidden="true">
-        <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" />
-        <span className="eyebrow text-[0.6rem]">Ao vivo</span>
+        <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
+        <span className="eyebrow text-[0.6rem]">Exemplos</span>
       </div>
 
       <div className="marquee-track pl-40">

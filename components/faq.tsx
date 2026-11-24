@@ -24,8 +24,8 @@ const FAQS = [
     a: 'Sim. Os dados são armazenados com Row Level Security (RLS) no Supabase, e o sistema nunca envia informações sensíveis para LLMs terceiros. Usamos provedores que não treinam nos seus dados.',
   },
   {
-    q: 'O preço de R$39 vai subir depois do beta?',
-    a: 'Sim — quem entrar durante o beta trava o plano Builder nesse valor para sempre. É o preço de fundador, sem asterisco. Depois do beta o valor vai subir.',
+    q: 'O preço de R$39 vai subir depois do lançamento?',
+    a: 'Sim. Quem entrar na lista antes do lançamento trava o plano Builder nesse valor para sempre. É o preço de fundador, sem asterisco. Depois disso o valor sobe.',
   },
 ]
 

@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic'
 import WaitlistForm from './waitlist-form'
-import LeadCounter from '@/components/lead-counter'
 import AbHeadline from './ab-headline'
 
 const Radar = dynamic(() => import('./radar'), { ssr: false })
@@ -22,7 +21,7 @@ export default function Hero() {
             <div className="hero-animate hero-delay-1">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(198,242,78,0.2)] bg-[rgba(198,242,78,0.05)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" aria-hidden="true" />
-                <span className="eyebrow text-[0.65rem]">Acesso antecipado aberto</span>
+                <span className="eyebrow text-[0.65rem]">Lista de espera aberta</span>
               </div>
             </div>
 
@@ -38,36 +37,14 @@ export default function Hero() {
               </strong>
             </p>
 
-            {/* Social proof avatares */}
-            <div className="hero-animate hero-delay-4 flex items-center gap-3">
-              <div className="flex -space-x-2.5" aria-hidden="true">
-                {[
-                  { bg:'#c6f24e', l:'M' },
-                  { bg:'#3dd7b0', l:'R' },
-                  { bg:'#a78bfa', l:'T' },
-                  { bg:'#ffaa50', l:'L' },
-                  { bg:'#ff6b6b', l:'G' },
-                ].map((a,i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-[var(--bg)] flex items-center justify-center text-[10px] font-bold text-[#060807]"
-                    style={{ background: a.bg }}>
-                    {a.l}
-                  </div>
-                ))}
-              </div>
-              <div>
-                <LeadCounter fallback={63} className="text-sm text-[var(--text-primary)] font-semibold" />
-                <span className="text-sm text-[var(--text-secondary)]"> founders já na lista</span>
-              </div>
-            </div>
-
             {/* Form */}
-            <div className="hero-animate hero-delay-5">
+            <div className="hero-animate hero-delay-4">
               <WaitlistForm variant="hero" />
             </div>
 
             {/* Trust signals */}
-            <div className="hero-animate hero-delay-6 flex flex-wrap gap-4 text-xs text-[var(--text-faint)] font-mono">
-              {['✓ Sem cartão de crédito','✓ Beta gratuito','✓ Cancela quando quiser'].map(t => (
+            <div className="hero-animate hero-delay-5 flex flex-wrap gap-4 text-xs text-[var(--text-faint)] font-mono">
+              {['✓ Sem cartão de crédito','✓ Acesso antecipado grátis','✓ Cancela quando quiser'].map(t => (
                 <span key={t}>{t}</span>
               ))}
             </div>
@@ -80,7 +57,7 @@ export default function Hero() {
               {/* Badge de status */}
               <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full glass text-[11px] font-mono text-[var(--text-secondary)] whitespace-nowrap">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" aria-hidden="true" />
-                VARREDURA EM ANDAMENTO · 3 rivais ativos
+                DEMONSTRAÇÃO · 3 rivais de exemplo
               </div>
 
               {/* Container */}

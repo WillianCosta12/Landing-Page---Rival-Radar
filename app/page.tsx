@@ -1,11 +1,9 @@
 import Nav from '@/components/nav'
 import Hero from '@/components/hero/hero'
 import Marquee from '@/components/marquee'
-import StatsBar from '@/components/stats-bar'
 import Problem from '@/components/problem'
 import HowItWorks from '@/components/how-it-works'
 import DigestMock from '@/components/digest-mock'
-import Testimonials from '@/components/testimonials'
 import Features from '@/components/features'
 import Pricing from '@/components/pricing'
 import Faq from '@/components/faq'
@@ -23,15 +21,11 @@ export default function Home() {
         <Hero />
         <Marquee />
         <div className="section-divider" />
-        <ScrollReveal><StatsBar /></ScrollReveal>
-        <div className="section-divider" />
         <ScrollReveal><Problem /></ScrollReveal>
         <div className="section-divider" />
         <ScrollReveal><HowItWorks /></ScrollReveal>
         <div className="section-divider" />
         <ScrollReveal><DigestMock /></ScrollReveal>
-        <div className="section-divider" />
-        <ScrollReveal><Testimonials /></ScrollReveal>
         <div className="section-divider" />
         <ScrollReveal><Features /></ScrollReveal>
         <div className="section-divider" />

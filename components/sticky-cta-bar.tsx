@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useState } from 'react'
-import LeadCounter from '@/components/lead-counter'
 
 export default function StickyCtaBar() {
   const [visible, setVisible] = useState(false)
@@ -28,10 +27,6 @@ export default function StickyCtaBar() {
           <p className="text-xs text-[var(--text-secondary)]">Você ainda não sabe. Entre na lista agora.</p>
         </div>
         <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
-          <span className="flex items-center gap-1.5 text-xs font-mono text-[var(--text-faint)] whitespace-nowrap hidden sm:flex">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" aria-hidden="true" />
-            <LeadCounter fallback={63} /> na fila
-          </span>
           <a href="#waitlist" className="btn-primary btn-primary-glow text-sm py-2.5 px-5 w-full sm:w-auto justify-center">
             Garantir acesso grátis →
           </a>
