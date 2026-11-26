@@ -2,7 +2,7 @@
 
 > Inteligência competitiva no piloto automático para indie founders e times de produto enxutos.
 
-**Live:** [rivalradar.vercel.app](https://rivalradar.vercel.app) · **Repositório:** [github.com/WillianCosta12/Landing-Page---Rival-Radar](https://github.com/WillianCosta12/Landing-Page---Rival-Radar)
+**Repositório:** [github.com/WillianCosta12/Landing-Page---Rival-Radar](https://github.com/WillianCosta12/Landing-Page---Rival-Radar)
 
 ---
 
@@ -99,7 +99,7 @@ rivalradar/
 | 5 | **Como funciona** | 3 passos simples — remove objeção de complexidade |
 | 6 | **O digest** | Mock de e-mail com empresas fictícias — mostra o formato que o usuário recebe |
 | 7 | **Features** | Grid 6 itens com spotlight — diferencia de "só mais um scraper" |
-| 8 | **Pricing** | Planos Solo/Builder, badge "Fundador", preço travado para quem entra na lista |
+| 8 | **Pricing** | Planos Solo/Builder, badge "Fundador", preço de fundador para quem entra na lista |
 | 9 | **FAQ** | 6 perguntas que quebram as principais objeções de compra |
 | 10 | **CTA final** | Headline "Seu concorrente mudou algo esta semana. Você ainda não sabe." |
 | 11 | **Sticky CTA** | Aparece após 45% de scroll, pressão constante sem ser invasivo |
@@ -185,7 +185,7 @@ RLS ativa **sem policies públicas** — nenhum cliente anônimo lê ou insere d
 3. Defina `NOTIFICATION_EMAIL` com seu e-mail de notificação
 
 > **Remetente padrão:** `onboarding@resend.dev` (domínio do Resend).
-> Para usar domínio próprio (`oi@rivalradar.app`): verifique em **Resend → Domains** e atualize `from` em `lib/resend.ts`.
+> Para usar domínio próprio (`oi@seudominio.com`): verifique em **Resend → Domains** e atualize `from` em `lib/resend.ts`.
 
 ---
 
@@ -333,7 +333,7 @@ Classes geradas via template literal (`reveal-delay-${i}`) são invisíveis para
 
 ## Roadmap pós-validação
 
-- [ ] Domínio próprio (`rivalradar.com` ou `.app`) na Vercel
+- [ ] Domínio próprio na Vercel
 - [ ] Verificar domínio no Resend para remetente customizado
 - [ ] Dashboard admin para visualizar e exportar leads
 - [ ] Notificação de novos leads no Slack além do e-mail

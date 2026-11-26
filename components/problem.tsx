@@ -11,12 +11,12 @@ export default function Problem() {
         </div>
 
         <h2 id="problem-heading" className="reveal reveal-delay-1 font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-[var(--text-primary)] mb-4 max-w-2xl">
-          Você não tem 3 horas por semana{' '}
-          <span className="text-[var(--text-faint)]">pra ficar de tocaia.</span>
+          Quantas horas por semana{' '}
+          <span className="text-[var(--text-faint)]">você gasta de tocaia?</span>
         </h2>
 
         <p className="reveal reveal-delay-2 text-[var(--text-secondary)] text-lg max-w-xl mb-6 font-body">
-          Mas seu concorrente não para de lançar. E quando você descobre que ele mudou o preço ou lançou aquela feature que os seus usuários pedem faz 6 meses —{' '}
+          Enquanto isso, seu concorrente não para de lançar. E quando você descobre que ele mudou o preço ou lançou aquela feature que os seus usuários pedem faz 6 meses —{' '}
           <strong className="text-[var(--text-primary)]">já é tarde demais.</strong>
         </p>
 
@@ -39,7 +39,7 @@ export default function Problem() {
               </div>
               <div>
                 <div className="font-display text-5xl font-extrabold leading-none mb-1" style={{ color:'#ff6b6b' }}>~3h</div>
-                <div className="text-xs font-mono text-[var(--text-faint)] uppercase tracking-wider">perdidas por semana</div>
+                <div className="text-xs font-mono text-[var(--text-faint)] uppercase tracking-wider">estimativa comum</div>
               </div>
             </div>
             <div>
@@ -93,7 +93,7 @@ export default function Problem() {
                   'Contexto estratégico: "por que isso importa pra você"',
                   'Chega no e-mail ou Slack, sem abrir nada',
                   'Histórico completo de cada rival ao longo do tempo',
-                  'Alerta em tempo real para mudanças críticas',
+                  'Alerta imediato quando a varredura encontra algo crítico',
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
                     <span className="mt-0.5 shrink-0 text-[var(--accent)]" aria-hidden="true">✓</span>

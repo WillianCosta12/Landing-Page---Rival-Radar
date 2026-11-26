@@ -21,11 +21,11 @@ const FAQS = [
   },
   {
     q: 'Meus dados ficam seguros?',
-    a: 'Sim. Os dados são armazenados com Row Level Security (RLS) no Supabase, e o sistema nunca envia informações sensíveis para LLMs terceiros. Usamos provedores que não treinam nos seus dados.',
+    a: 'Hoje, a lista de espera guarda só o seu e-mail, no Supabase com Row Level Security. No produto, a regra é a mesma: nada sensível vai para LLM de terceiros, e só usamos provedores que não treinam nos seus dados.',
   },
   {
-    q: 'O preço de R$39 vai subir depois do lançamento?',
-    a: 'Sim. Quem entrar na lista antes do lançamento trava o plano Builder nesse valor para sempre. É o preço de fundador, sem asterisco. Depois disso o valor sobe.',
+    q: 'O que é o preço de fundador?',
+    a: 'É o valor do plano Builder (R$39/mês) reservado para quem entrar na lista antes do lançamento. Nada é cobrado agora: a lista de espera só guarda o seu e-mail.',
   },
 ]
 

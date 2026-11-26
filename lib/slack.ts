@@ -1,3 +1,5 @@
+import { SITE_URL } from './site-url'
+
 /**
  * Notificação Slack via Incoming Webhook.
  * Configure SLACK_WEBHOOK_URL no .env.local.
@@ -29,7 +31,7 @@ export async function sendSlackLeadNotification(email: string): Promise<void> {
         elements: [
           {
             type: 'mrkdwn',
-            text: 'RivalRadar · rivalradar.vercel.app',
+            text: `RivalRadar · ${SITE_URL.replace(/^https?:\/\//, '')}`,
           },
         ],
       },

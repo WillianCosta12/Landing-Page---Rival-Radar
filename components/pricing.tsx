@@ -1,4 +1,4 @@
-import { Check, Zap, Lock } from 'lucide-react'
+import { Check, Zap } from 'lucide-react'
 import SpotlightCard from './spotlight-card'
 
 const SOLO = ['3 concorrentes monitorados','Digest semanal por e-mail','Detecção de preço & feature','Histórico de 30 dias','Setup em 5 minutos']
@@ -17,7 +17,7 @@ export default function Pricing() {
           Preço de fundador pra quem entrar na lista.
         </h2>
         <p className="reveal reveal-delay-2 text-[var(--text-secondary)] font-body text-lg mb-10 max-w-xl">
-          Quem entrar na lista antes do lançamento trava esse valor <strong className="text-[var(--text-primary)]">para sempre</strong>. Sem pegadinha, sem asterisco.
+          Quem entrar na lista antes do lançamento garante o <strong className="text-[var(--text-primary)]">preço de fundador</strong>. Sem pegadinha, sem asterisco.
         </p>
 
         <div className="reveal reveal-delay-3 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
@@ -60,16 +60,12 @@ export default function Pricing() {
             <div className="">
               <div className="flex items-center justify-between mb-3">
                 <span className="font-display font-bold text-lg text-[var(--text-primary)]">Builder</span>
-                <div className="flex items-center gap-1 pill" style={{ background:'rgba(198,242,78,0.08)', color:'var(--accent)', border:'1px solid rgba(198,242,78,0.25)' }}>
-                  <Lock size={10} aria-hidden="true" />
-                  Travado pra sempre
-                </div>
               </div>
               <div className="flex items-baseline gap-1 mb-1">
                 <span className="font-display text-5xl font-extrabold text-[var(--accent)]">R$39</span>
-                <span className="text-sm text-[var(--text-secondary)]">/mês travado</span>
+                <span className="text-sm text-[var(--text-secondary)]">/mês</span>
               </div>
-              <p className="text-sm text-[var(--text-faint)]">Quem entra agora nunca paga mais.</p>
+              <p className="text-sm text-[var(--text-faint)]">Preço de fundador pra quem entrar na lista.</p>
             </div>
 
             <a href="#waitlist" className="btn-primary btn-primary-glow w-full justify-center">
@@ -86,7 +82,7 @@ export default function Pricing() {
           </SpotlightCard>
         </div>
 
-        <p className="reveal reveal-delay-5 mt-6 text-xs font-mono text-[var(--text-faint)]">
+        <p className="reveal reveal-delay-4 mt-6 text-xs font-mono text-[var(--text-faint)]">
           // sem contrato · cancela quando quiser · migra de plano com 1 clique
         </p>
       </div>

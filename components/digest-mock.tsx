@@ -125,7 +125,7 @@ export default function DigestMock() {
               <div className="pt-3 border-t text-[10px] text-[var(--text-faint)] flex justify-between"
                 style={{ borderColor:'rgba(198,242,78,0.08)' }}>
                 <span>// próximo digest: seg, 03 fev · 08h00</span>
-                <span className="text-[var(--accent)]">rivalradar.app</span>
+                <span className="text-[var(--accent)]">rivalradar · exemplo</span>
               </div>
             </div>
           </div>

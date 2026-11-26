@@ -16,15 +16,6 @@ export default function Footer() {
         <p className="text-xs text-[var(--text-faint)] font-mono text-center">
           © 2026 RivalRadar · inteligência competitiva pra quem constrói
         </p>
-
-        <div className="flex items-center gap-5">
-          {[['Privacidade','#'],['Termos','#'],['Contato','mailto:oi@rivalradar.app']].map(([label,href]) => (
-            <a key={label} href={href}
-              className="text-xs text-[var(--text-faint)] hover:text-[var(--text-secondary)] transition-colors font-body">
-              {label}
-            </a>
-          ))}
-        </div>
       </div>
     </footer>
   )

@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og'
+import { SITE_URL } from '@/lib/site-url'
 
 export const runtime = 'edge'
 
@@ -128,7 +129,7 @@ export async function GET() {
             fontWeight: 600,
           }}
         >
-          {(process.env.NEXT_PUBLIC_SITE_URL ?? 'landing-page-rival-radar.vercel.app').replace('https://', '')} · Acesso antecipado gratuito
+          {SITE_URL.replace(/^https?:\/\//, '')} · Acesso antecipado gratuito
         </div>
       </div>
     ),

@@ -118,10 +118,6 @@ export default function WaitlistForm({ variant = 'hero' }: WaitlistFormProps) {
           {errorMsg}
         </p>
       )}
-
-      <p className="mt-3 font-mono text-[var(--text-faint)] text-[11px] tracking-wide">
-        // acesso antecipado · sem cartão · cancela quando quiser
-      </p>
     </form>
   )
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Bricolage_Grotesque, Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
 import Script from 'next/script'
+import { SITE_URL } from '@/lib/site-url'
 import './globals.css'
 
 const bricolage = Bricolage_Grotesque({
@@ -21,9 +22,6 @@ const jetbrains = JetBrains_Mono({
   variable: '--font-jetbrains',
   display: 'swap',
 })
-
-// URL base configurável via env — funciona com .vercel.app ou domínio próprio no futuro
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://landing-page-rival-radar.vercel.app'
 
 export const metadata: Metadata = {
   title: 'RivalRadar — Inteligência Competitiva no Piloto Automático',
